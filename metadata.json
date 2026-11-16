@@ -1,0 +1,6 @@
+{
+  "name": "ResearchFlow AI",
+  "description": "Analyze, compare, and evolve academic research papers with AI-powered structured synthesis, comparative matrices, and contextual Q&A.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

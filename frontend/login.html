@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | ResearchFlow AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page animate-bg">
+    <div class="login-bg-shapes">
+        <!-- Floating Elements -->
+        <div class="paper-icon-float" style="top: 10%; left: 5%; --duration: 20s;">📄</div>
+        <div class="paper-icon-float" style="top: 40%; right: 10%; --duration: 25s;">📊</div>
+        <div class="paper-icon-float" style="bottom: 10%; left: 15%; --duration: 18s;">🧠</div>
+        <div class="paper-icon-float" style="top: 20%; right: 30%; --duration: 22s;">📄</div>
+        <div class="paper-icon-float" style="bottom: 30%; right: 20%; --duration: 28s;">📈</div>
+        
+        <div class="shape s1"></div>
+        <div class="shape s2"></div>
+        <div class="shape s3"></div>
+    </div>
+
+    <div class="login-wrapper">
+        <div class="logo" style="justify-content: center; margin-bottom: 24px;">
+            <div class="logo-mark">RF</div>
+            <div class="logo-text">
+                <span class="logo-title">ResearchFlow</span>
+                <span class="logo-sub">AI Memento</span>
+            </div>
+        </div>
+
+        <div class="login-card-container glass animate-pop">
+            <div class="login-header">
+                <h2>Welcome to ResearchFlow</h2>
+                <div class="typing-container" id="loginTyping"></div>
+            </div>
+
+            <form id="loginForm" class="login-form-content">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <div class="input-with-icon glass">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <input type="email" id="emailInput" placeholder="you@example.com" required>
+                    </div>
+                </div>
+                <button type="submit" id="loginBtn" class="primary-btn full-width">
+                    <span>Send Verification Code</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+                <div class="auth-divider"><span>or</span></div>
+                <button type="button" id="googleSignInBtn" class="google-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.14C3.26 21.3 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.24c-.24-.72-.38-1.49-.38-2.24s.14-1.52.38-2.24V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.99-3.14z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.99 3.14c.95-2.85 3.6-4.96 6.72-4.96z"/></svg>
+                    <span>Sign in with Google</span>
+                </button>
+            </form>
+
+            <form id="detailsForm" class="login-form-content hidden">
+                <div class="form-group">
+                    <label>Google Email</label>
+                    <div class="input-with-icon glass">
+                        <input type="email" id="display-email" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <div class="input-with-icon glass">
+                        <input type="text" id="uname" placeholder="Your full name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <div class="input-with-icon glass">
+                        <input type="tel" id="umobile" placeholder="10-digit mobile number" maxlength="10" required>
+                    </div>
+                </div>
+                <button type="submit" id="detailsSubmitBtn" class="primary-btn full-width">
+                    <span>Send Verification Code</span>
+                </button>
+                <button type="button" id="detailsBackBtn" class="back-link">← Back to login</button>
+            </form>
+
+            <form id="otpForm" class="login-form-content hidden">
+                <div class="otp-alert glass">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.83-.83a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
+                    <span>Check your email for the 6-digit code.</span>
+                </div>
+                <div class="form-group">
+                    <label>Verification Code</label>
+                    <input type="text" id="otpInput" class="otp-field glass" placeholder="· · · · · ·" maxlength="6" required>
+                </div>
+                <button type="submit" id="verifyBtn" class="primary-btn full-width">
+                    <span>Verify & Login</span>
+                </button>
+                <button type="button" id="backBtn" class="back-link">← Use a different email</button>
+            </form>
+
+            <div id="loginError" class="error-msg hidden"></div>
+        </div>
+        
+        <p class="login-footer">Analyze. Compare. Evolve.</p>
+    </div>
+
+    <!-- Google Email Input Modal -->
+    <div class="google-prompt-overlay hidden" id="google-prompt-modal">
+        <div class="google-prompt-box animate-pop">
+            <h3 style="font-size: 20px; margin-bottom: 18px; font-weight: 800; font-family: 'Syne', sans-serif;">
+                Sign in with Google
+            </h3>
+            <input type="email" id="google-email-input"
+                class="auth-input"
+                style="background:#f1f5f9; color:#000; border:1px solid #cbd5e1; text-align:left;"
+                placeholder="email@gmail.com">
+            <div id="googleModalError" class="error-msg hidden" style="margin-top: 12px;"></div>
+            <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 22px;">
+                <button type="button" id="googleCancelBtn"
+                    style="cursor:pointer; background:none; border:none; font-size:15px; color:#64748b; font-weight:600; padding: 8px 14px;">
+                    Cancel
+                </button>
+                <button type="button" id="googleNextBtn"
+                    class="primary-btn"
+                    style="padding: 10px 22px; font-size:15px;">
+                    Next
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>
